@@ -8,6 +8,10 @@
 </head>
 <body>
 	<%= image_tag "logo_iatm.png" %>
+	<ul class="hmenu">
+	  <%= render 'devise/menu/registration_items' %>
+	  <%= render 'devise/menu/login_items' %>
+	</ul>
 	<h1>MStrack - Plataforma de seguimiento de pacientes con esclerosis multiple</h1>
 	<p><%= link_to 'Patients', patients_path %></p>
 	<p><%= link_to 'Visits', visits_path %></p>
@@ -16,7 +20,7 @@
 	
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-
+	
 <%= yield %>
 
 </body>

@@ -1,4 +1,5 @@
 class LesionsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /lesions
   # GET /lesions.json
   def index
