@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= image_tag "logo_iatm.png" %>
+	<h1>MStrack - Plataforma de seguimiento de pacientes con esclerosis multiple</h1>
+	<p><%= link_to 'Patients', patients_path %></p>
+	<p><%= link_to 'Visits', visits_path %></p>
+	<p><%= link_to 'Lesions', lesions_path %></p>
+	<p><%= link_to 'Lesions locations', lesion_locations_path %></p>
+	
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 
