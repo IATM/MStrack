@@ -1,4 +1,6 @@
 MStrack::Application.routes.draw do
+  resources :lesion_locations
+
   resources :patients
 
   devise_for :users

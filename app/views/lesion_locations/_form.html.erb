@@ -1,0 +1,25 @@
+<%= form_for(@lesion_location) do |f| %>
+  <% if @lesion_location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lesion_location.errors.count, "error") %> prohibited this lesion_location from being saved:</h2>
+
+      <ul>
+      <% @lesion_location.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

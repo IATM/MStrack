@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Region:</b>
+  <%= @lesion_location.region %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @lesion_location.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_lesion_location_path(@lesion_location) %> |
+<%= link_to 'Back', lesion_locations_path %>
