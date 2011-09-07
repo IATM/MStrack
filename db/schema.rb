@@ -11,11 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907000703) do
+ActiveRecord::Schema.define(:version => 20110907001250) do
 
   create_table "lesion_locations", :force => true do |t|
     t.string   "region"
     t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lesions", :force => true do |t|
+    t.string   "laterality"
+    t.string   "shape"
+    t.integer  "size"
+    t.string   "enhancement"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Laterality:</b>
+  <%= @lesion.laterality %>
+</p>
+
+<p>
+  <b>Shape:</b>
+  <%= @lesion.shape %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @lesion.size %>
+</p>
+
+<p>
+  <b>Enhancement:</b>
+  <%= @lesion.enhancement %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @lesion.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_lesion_path(@lesion) %> |
+<%= link_to 'Back', lesions_path %>

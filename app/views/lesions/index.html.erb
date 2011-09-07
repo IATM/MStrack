@@ -1,0 +1,31 @@
+<h1>Listing lesions</h1>
+
+<table>
+  <tr>
+    <th>Laterality</th>
+    <th>Shape</th>
+    <th>Size</th>
+    <th>Enhancement</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lesions.each do |lesion| %>
+  <tr>
+    <td><%= lesion.laterality %></td>
+    <td><%= lesion.shape %></td>
+    <td><%= lesion.size %></td>
+    <td><%= lesion.enhancement %></td>
+    <td><%= lesion.type %></td>
+    <td><%= link_to 'Show', lesion %></td>
+    <td><%= link_to 'Edit', edit_lesion_path(lesion) %></td>
+    <td><%= link_to 'Destroy', lesion, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lesion', new_lesion_path %>

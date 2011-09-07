@@ -1,0 +1,2 @@
+module LesionsHelper
+end
