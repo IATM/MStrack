@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907001250) do
+ActiveRecord::Schema.define(:version => 20110907003730) do
 
   create_table "lesion_locations", :force => true do |t|
     t.string   "region"
@@ -64,5 +64,14 @@ ActiveRecord::Schema.define(:version => 20110907001250) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "visits", :force => true do |t|
+    t.datetime "visit_date"
+    t.string   "ref_physician"
+    t.integer  "user_id"
+    t.string   "imaging_center"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

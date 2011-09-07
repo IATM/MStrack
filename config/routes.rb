@@ -1,4 +1,6 @@
 MStrack::Application.routes.draw do
+  resources :visits
+
   resources :lesions
 
   resources :lesion_locations
