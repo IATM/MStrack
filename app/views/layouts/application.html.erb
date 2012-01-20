@@ -6,22 +6,33 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<%= image_tag "logo_iatm.png" %>
-	<ul class="hmenu">
-	  <%= render 'devise/menu/registration_items' %>
-	  <%= render 'devise/menu/login_items' %>
-	</ul>
-	<h1>MStrack - Plataforma de seguimiento de pacientes con esclerosis multiple</h1>
-	<p><%= link_to 'Patients', patients_path %></p>
-	<p><%= link_to 'Visits', visits_path %></p>
-	<p><%= link_to 'Lesions', lesions_path %></p>
-	<p><%= link_to 'Lesions locations', lesion_locations_path %></p>
-	
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	
-<%= yield %>
-
+<body style="padding-top: 60px">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container-fluid">
+        <h3><%= link_to "MStrack", "/" %></h3>
+        <ul class="nav">
+          <li><%= link_to "Link1", "/path1"  %></li>
+          <li><%= link_to "Link2", "/path2"  %></li>
+          <li><%= link_to "Link3", "/path3"  %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="sidebar">
+      <div class="well">
+        <h5>Sidebar</h5>
+        <ul>
+          <li><%= link_to "Link1", "/path1"  %></li>
+          <li><%= link_to "Link2", "/path2"  %></li>
+          <li><%= link_to "Link3", "/path3"  %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

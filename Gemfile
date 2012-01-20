@@ -42,3 +42,5 @@ group :test do
   gem "guard-rspec"
 end
 
+# Twitter Bootstrap
+gem 'twitter-bootstrap-rails'
