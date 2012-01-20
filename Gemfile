@@ -41,4 +41,5 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
 end
-
+# Simple form
+gem "simple_form"
