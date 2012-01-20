@@ -42,10 +42,3 @@ group :test do
   gem "guard-rspec"
 end
 
-# Twitter Bootstrap
-gem 'twitter-bootstrap-rails'
-
-# Formtastic
-gem 'formtastic'
-gem 'formtastic-bootstrap'
-gem 'country-select'
