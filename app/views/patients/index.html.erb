@@ -1,23 +1,26 @@
-<h1>Listing patients</h1>
-
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Identification</th>
-    <th>Sex</th>
-    <th>Birthdate</th>
-    <th>Address 1</th>
-    <th>Address 2</th>
-    <th>City</th>
-    <th>Country</th>
-    <th>Address state</th>
-    <th>Phone</th>
-    <th>Mobile phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<section id="tabla">
+<div class="page-header"><h1>Patients</h1></div>
+<div class="row">
+<table class="bordered-table zebra-striped">
+  <thead>
+	  <tr>
+	    <th>First name</th>
+	    <th>Last name</th>
+	    <th>Identification</th>
+	    <th>Sex</th>
+	    <th>Birthdate</th>
+	    <th>Address 1</th>
+	    <th>Address 2</th>
+	    <th>City</th>
+	    <th>Country</th>
+	    <th>Address state</th>
+	    <th>Phone</th>
+	    <th>Mobile phone</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+  </thead>
 
 <% @patients.each do |patient| %>
   <tr>
@@ -39,6 +42,9 @@
   </tr>
 <% end %>
 </table>
+</div>
+</div>
+</section>
 
 <br />
 
