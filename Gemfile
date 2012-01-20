@@ -41,5 +41,9 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
 end
+
 # Simple form
-gem "simple_form"
+gem 'simple_form'
+
+# Twitter Bootstrap
+gem 'twitter-bootstrap-rails'

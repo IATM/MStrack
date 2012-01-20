@@ -90,4 +90,11 @@ SimpleForm.setup do |config|
 
   # When false, do not use translations for labels, hints or placeholders.
   # config.translate = true
+  config.hint_class = 'help-block'
+  config.error_class = 'help-inline'
+  config.wrapper_class = 'clearfix'
+  config.wrapper_error_class = 'error'
+  config.label_text = lambda { |label, required| "#{label} #{required}" }
+  config.form_class = nil
+  require 'simple_form/contained_input_component.rb'
 end
