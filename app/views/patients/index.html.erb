@@ -1,23 +1,17 @@
 <h1>Listing patients</h1>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Identification</th>
-    <th>Sex</th>
-    <th>Birthdate</th>
-    <th>Address 1</th>
-    <th>Address 2</th>
-    <th>City</th>
-    <th>Country</th>
-    <th>Address state</th>
-    <th>Phone</th>
-    <th>Mobile phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="bordered-table zebra-striped">
+<thead>	
+	  <tr>
+	    <th>First name</th>
+	    <th>Last name</th>
+	    <th>Identification</th>
+	    <th>Sex</th>
+	    <th>Birthdate</th>
+	    <th>Last visit</th>
+	    <th></th>
+	  </tr>
+  </thead>
 
 <% @patients.each do |patient| %>
   <tr>
@@ -26,16 +20,8 @@
     <td><%= patient.identification %></td>
     <td><%= patient.sex %></td>
     <td><%= patient.birthdate %></td>
-    <td><%= patient.address_1 %></td>
-    <td><%= patient.address_2 %></td>
-    <td><%= patient.city %></td>
-    <td><%= patient.country %></td>
-    <td><%= patient.address_state %></td>
-    <td><%= patient.phone %></td>
-    <td><%= patient.mobile_phone %></td>
-    <td><%= link_to 'Show', patient %></td>
-    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-    <td><%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete %></td>
+    <td>last visit date</td>
+    <td><%= link_to 'Show', patient %> | <%= link_to 'Edit', edit_patient_path(patient) %> | <%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

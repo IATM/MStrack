@@ -10,19 +10,18 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container-fluid">
-        <h3><%= link_to "MStrack", "/" %></h3>
+        <h3><%= link_to image_tag("logoiatm_white.png", :border=>0, :height => 25), root_path %>  <%= link_to "MSTrack v0.1", "/" %></h3>
         <ul class="nav">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
         </ul>
       </div>
+
     </div>
   </div>
   <div class="container-fluid">
     <div class="sidebar">
       <div class="well">
-        <h5>Sidebar</h5>
+        <h5>Menu</h5>
         <ul>
           <li><%= link_to "Link1", "/path1"  %></li>
           <li><%= link_to "Link2", "/path2"  %></li>

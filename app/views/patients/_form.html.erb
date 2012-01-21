@@ -1,4 +1,4 @@
-<%= form_for(@patient) do |f| %>
+<%= simple_form_for(@patient) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -9,57 +9,22 @@
       <% end %>
       </ul>
     </div>
+	
   <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :identification %><br />
-    <%= f.text_field :identification %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.text_field :sex %>
-  </div>
-  <div class="field">
-    <%= f.label :birthdate %><br />
-    <%= f.date_select :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label :address_1 %><br />
-    <%= f.text_field :address_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :address_2 %><br />
-    <%= f.text_field :address_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :address_state %><br />
-    <%= f.text_field :address_state %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile_phone %><br />
-    <%= f.text_field :mobile_phone %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :identification %>
+    <%= f.input :sex %>
+    <%= f.input :birthdate %>
+    <%= f.input :address_1 %>
+    <%= f.input :address_2 %>
+    <%= f.input :city %>
+    <%= f.input :country %>
+    <%= f.input :address_state %>
+    <%= f.input :phone %>
+    <%= f.input :mobile_phone %>
+    <div class="actions">
+      <%= f.button :submit, :class => 'btn primary' %>
+      <%= button_tag 'Cancel', :type => :reset, :class => "btn" %>
+    </div>
 <% end %>
