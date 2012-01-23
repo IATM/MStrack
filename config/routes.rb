@@ -1,4 +1,6 @@
 MStrack::Application.routes.draw do
+  resources :antecedentes
+
   resources :visits
 
   resources :lesions

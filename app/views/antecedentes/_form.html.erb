@@ -1,0 +1,32 @@
+<%= simple_form_for(@antecedente) do |f| %>
+  <% if @antecedente.errors.any? %>
+    <div class="alert-message error">
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :patologicos %>
+    <%= f.input :autoinmunes %>
+    <%= f.input :neurologicos %>
+    <%= f.input :psiquiatricos %>
+    <%= f.input :quirurgicos %>
+    <%= f.input :gineco_g %>
+    <%= f.input :gineco_p %>
+    <%= f.input :gineco_c %>
+    <%= f.input :gineco_a %>
+    <%= f.input :gineco_e %>
+    <%= f.input :gineco_v %>
+    <%= f.input :gineco_anticoncepcion %>
+    <%= f.input :toxicos %>
+    <%= f.input :adicciones %>
+    <%= f.input :alergicos %>
+    <%= f.input :vacunas_recientes %>
+    <%= f.input :traumaticos %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+

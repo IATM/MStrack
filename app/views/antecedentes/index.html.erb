@@ -1,0 +1,58 @@
+<div class="page-header">
+  <%= link_to 'Nuevo Antecedente', new_antecedente_path, :class => 'btn primary' %>
+  <h1>Listado de antecedentes</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Patologicos</th>
+      <th>Autoinmunes</th>
+      <th>Neurologicos</th>
+      <th>Psiquiatricos</th>
+      <th>Quirurgicos</th>
+      <th>Gineco g</th>
+      <th>Gineco p</th>
+      <th>Gineco c</th>
+      <th>Gineco a</th>
+      <th>Gineco e</th>
+      <th>Gineco v</th>
+      <th>Gineco anticoncepcion</th>
+      <th>Toxicos</th>
+      <th>Adicciones</th>
+      <th>Alergicos</th>
+      <th>Vacunas recientes</th>
+      <th>Traumaticos</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @antecedentes.each do |antecedente| %>
+    <tr>
+      <td><%= antecedente.patologicos %></td>
+      <td><%= antecedente.autoinmunes %></td>
+      <td><%= antecedente.neurologicos %></td>
+      <td><%= antecedente.psiquiatricos %></td>
+      <td><%= antecedente.quirurgicos %></td>
+      <td><%= antecedente.gineco_g %></td>
+      <td><%= antecedente.gineco_p %></td>
+      <td><%= antecedente.gineco_c %></td>
+      <td><%= antecedente.gineco_a %></td>
+      <td><%= antecedente.gineco_e %></td>
+      <td><%= antecedente.gineco_v %></td>
+      <td><%= antecedente.gineco_anticoncepcion %></td>
+      <td><%= antecedente.toxicos %></td>
+      <td><%= antecedente.adicciones %></td>
+      <td><%= antecedente.alergicos %></td>
+      <td><%= antecedente.vacunas_recientes %></td>
+      <td><%= antecedente.traumaticos %></td>
+      <td><%= link_to 'Ver', antecedente %></td>
+      <td><%= link_to 'Editar', edit_antecedente_path(antecedente) %></td>
+      <td><%= link_to 'Eliminar', antecedente, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

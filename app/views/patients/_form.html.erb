@@ -1,7 +1,7 @@
 <%= simple_form_for(@patient) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+      <h2><%= pluralize(@patient.errors.count, "error") %> impidio que se grabara este paciente:</h2>
 
       <ul>
       <% @patient.errors.full_messages.each do |msg| %>
@@ -25,6 +25,6 @@
     <%= f.input :mobile_phone %>
     <div class="actions">
       <%= f.button :submit, :class => 'btn primary' %>
-      <%= button_tag 'Cancel', :type => :reset, :class => "btn" %>
+      <%= button_tag 'Cancelar', :type => :reset, :class => "btn" %>
     </div>
 <% end %>

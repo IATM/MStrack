@@ -1,14 +1,14 @@
-<h1>Listing patients</h1>
+<h1>Listado de pacientes</h1>
 
 <table class="bordered-table zebra-striped">
 <thead>	
 	  <tr>
-	    <th>First name</th>
-	    <th>Last name</th>
-	    <th>Identification</th>
-	    <th>Sex</th>
-	    <th>Birthdate</th>
-	    <th>Last visit</th>
+	    <th>Nombre</th>
+	    <th>Apellido</th>
+	    <th>Identificacion</th>
+	    <th>Sexo</th>
+	    <th>Fecha Nacimiento</th>
+	    <th>Ultima visita</th>
 	    <th></th>
 	  </tr>
   </thead>
@@ -21,11 +21,11 @@
     <td><%= patient.sex %></td>
     <td><%= patient.birthdate %></td>
     <td>last visit date</td>
-    <td><%= link_to 'Show', patient %> | <%= link_to 'Edit', edit_patient_path(patient) %> | <%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Ver', patient %> | <%= link_to 'Editar', edit_patient_path(patient) %> | <%= link_to 'Eliminar', patient, confirm: 'Esta seguro?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'Nuevo paciente', new_patient_path %>

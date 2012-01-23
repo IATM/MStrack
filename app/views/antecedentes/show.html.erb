@@ -1,0 +1,59 @@
+<div class="page-header">
+  <%= link_to 'Atras', antecedentes_path, :class => 'btn' %>
+  <%= link_to 'Editar', edit_antecedente_path(@antecedente), :class => 'btn primary' %>
+  <h1>Listado de antecedentes</h1>
+</div>
+
+<dl>
+  <dt>Patologicos:</dt>
+  <dd><%= @antecedente.patologicos %></dd>
+
+  <dt>Autoinmunes:</dt>
+  <dd><%= @antecedente.autoinmunes %></dd>
+
+  <dt>Neurologicos:</dt>
+  <dd><%= @antecedente.neurologicos %></dd>
+
+  <dt>Psiquiatricos:</dt>
+  <dd><%= @antecedente.psiquiatricos %></dd>
+
+  <dt>Quirurgicos:</dt>
+  <dd><%= @antecedente.quirurgicos %></dd>
+
+  <dt>Gineco g:</dt>
+  <dd><%= @antecedente.gineco_g %></dd>
+
+  <dt>Gineco p:</dt>
+  <dd><%= @antecedente.gineco_p %></dd>
+
+  <dt>Gineco c:</dt>
+  <dd><%= @antecedente.gineco_c %></dd>
+
+  <dt>Gineco a:</dt>
+  <dd><%= @antecedente.gineco_a %></dd>
+
+  <dt>Gineco e:</dt>
+  <dd><%= @antecedente.gineco_e %></dd>
+
+  <dt>Gineco v:</dt>
+  <dd><%= @antecedente.gineco_v %></dd>
+
+  <dt>Gineco anticoncepcion:</dt>
+  <dd><%= @antecedente.gineco_anticoncepcion %></dd>
+
+  <dt>Toxicos:</dt>
+  <dd><%= @antecedente.toxicos %></dd>
+
+  <dt>Adicciones:</dt>
+  <dd><%= @antecedente.adicciones %></dd>
+
+  <dt>Alergicos:</dt>
+  <dd><%= @antecedente.alergicos %></dd>
+
+  <dt>Vacunas recientes:</dt>
+  <dd><%= @antecedente.vacunas_recientes %></dd>
+
+  <dt>Traumaticos:</dt>
+  <dd><%= @antecedente.traumaticos %></dd>
+
+</dl>
