@@ -1,4 +1,7 @@
-<h1>Listing visits</h1>
+<div class="page-header">
+  <%= link_to 'Nueva Visita', new_visit_path, :class => 'btn primary' %>
+  <h1>Listado de visitas</h1>
+</div>
 
 <table>
   <tr>
@@ -23,7 +26,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Visit', new_visit_path %>

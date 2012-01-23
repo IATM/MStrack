@@ -1,4 +1,7 @@
-<h1>Listado de pacientes</h1>
+<div class="page-header">
+  <%= link_to 'Nuevo Paciente', new_patient_path, :class => 'btn primary' %>
+  <h1>Listado de pacientes</h1>
+</div>
 
 <table class="bordered-table zebra-striped">
 <thead>	
@@ -25,7 +28,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nuevo paciente', new_patient_path %>

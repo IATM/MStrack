@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <a class="brand" href="#">IATM MSTrack v0.2</a>
         <ul class="nav">
-          <li class="active"><a href="#">Inicio</a></li>
+          <li class="active"><%= link_to "Inicio", root_path %></li>
           <li><a href="#about">Acerca de</a></li>
           <li><a href="#contact">Contactenos</a></li>
         </ul>
@@ -57,11 +57,12 @@
     <div class="content">
       <div class="row">
         <div class="span16">
+			<%= render 'common/header' %>
 			<%= yield %>
         </div>
       </div>
       <footer>
-        <p>&copy; IATM 2012, Derechos Reservados</p>
+		  <%= render 'common/footer'%>
       </footer>
     </div>
   </div>
