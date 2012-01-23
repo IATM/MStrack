@@ -51,4 +51,4 @@ end
 gem 'simple_form'
 
 # Twitter Bootstrap
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-generators'
