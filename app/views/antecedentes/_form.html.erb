@@ -6,19 +6,19 @@
   <% end %>
 
   <div class="inputs">
-    <%= f.input :patologicos %>
-    <%= f.input :autoinmunes %>
-    <%= f.input :neurologicos %>
-    <%= f.input :psiquiatricos %>
+    <%= f.input :patologicos, :collection => ["diabetes", "dislipidemia", "enfermedad cardiaca", "enfermedad tiroidea", "hipertensión"] %>
+    <%= f.input :autoinmunes, :collection => ["artritis reumatoidea", "diabetes tipo 1", "enfermedad inflamatoria intestinal", "escleroderma", "LES"] %>
+    <%= f.input :neurologicos, :collection =>  ["ACV", "ELA", "epilepsia", "miastenia gravis", "migraña", "síndrome de Guillain barré"]%>
+    <%= f.input :psiquiatricos, :collection =>   ["depresión", "TAB", "TAG"]%>
     <%= f.input :quirurgicos %>
-    <%= f.input :gineco_g %>
-    <%= f.input :gineco_p %>
-    <%= f.input :gineco_c %>
-    <%= f.input :gineco_a %>
-    <%= f.input :gineco_e %>
-    <%= f.input :gineco_v %>
-    <%= f.input :gineco_anticoncepcion %>
-    <%= f.input :toxicos %>
+		<%= f.input :gineco_g, :label => "G", :input_html => { :class => "span1"} %>
+	    <%= f.input :gineco_p, :label => "P", :input_html => { :class => "span1"} %>
+	    <%= f.input :gineco_c, :label => "C", :input_html => { :class => "span1"} %>
+	    <%= f.input :gineco_a, :label => "A", :input_html => { :class => "span1"} %>
+	    <%= f.input :gineco_e, :label => "E", :input_html => { :class => "span1"} %>
+	    <%= f.input :gineco_v, :label => "V", :input_html => { :class => "span1"} %>
+    <%= f.input :gineco_anticoncepcion, :label => "Anticoncepcion" %>
+    <%= f.input :toxicos, :collection => ["cigarrillo", "alcohol", "otras sustancias"]%>
     <%= f.input :adicciones %>
     <%= f.input :alergicos %>
     <%= f.input :vacunas_recientes %>
