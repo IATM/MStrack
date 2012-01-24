@@ -1,4 +1,6 @@
 MStrack::Application.routes.draw do
+  resources :enfermedad_actuals
+
   resources :antecedentes
 
   resources :visits

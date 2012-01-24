@@ -1,0 +1,86 @@
+<div class="page-header">
+  <%= link_to 'Nuevo registro de enfermedad actual', new_enfermedad_actual_path, :class => 'btn primary' %>
+  <h1>Listado de registros de enfermedad actual</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Fuente inf</th>
+      <th>Fecha inicio</th>
+      <th>Duracion</th>
+      <th>Descripcion semiol</th>
+      <th>Dificultad caminar</th>
+      <th>Compromiso motor ext sup</th>
+      <th>Compromiso motor ext inf</th>
+      <th>Compromiso motor facial</th>
+      <th>Compromiso sens ext sup</th>
+      <th>Compromiso sens ext inf</th>
+      <th>Compromiso sens tronco</th>
+      <th>Compromiso sens lhermitte</th>
+      <th>Disfuncion intest vesical</th>
+      <th>Disfuncion sexual</th>
+      <th>Trastorno oculomotor</th>
+      <th>Trastorno vestib coclear</th>
+      <th>Trastorno lenguaje deglucion</th>
+      <th>Neuritis optica</th>
+      <th>Disfuncion cognitiva</th>
+      <th>Sintomas psiquiatricos</th>
+      <th>Fatiga</th>
+      <th>Sind uhtoff</th>
+      <th>Otros</th>
+      <th>Severidad</th>
+      <th>Recuperacion</th>
+      <th>Certeza</th>
+      <th>Evento asociado</th>
+      <th>Dias hospitalizacion</th>
+      <th>Esteroides</th>
+      <th>Dosis esteroides</th>
+      <th>Observaciones</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @enfermedad_actuals.each do |enfermedad_actual| %>
+    <tr>
+      <td><%= enfermedad_actual.fuente_inf %></td>
+      <td><%= enfermedad_actual.fecha_inicio %></td>
+      <td><%= enfermedad_actual.duracion %></td>
+      <td><%= enfermedad_actual.descripcion_semiol %></td>
+      <td><%= enfermedad_actual.dificultad_caminar %></td>
+      <td><%= enfermedad_actual.compromiso_motor_ext_sup %></td>
+      <td><%= enfermedad_actual.compromiso_motor_ext_inf %></td>
+      <td><%= enfermedad_actual.compromiso_motor_facial %></td>
+      <td><%= enfermedad_actual.compromiso_sens_ext_sup %></td>
+      <td><%= enfermedad_actual.compromiso_sens_ext_inf %></td>
+      <td><%= enfermedad_actual.compromiso_sens_tronco %></td>
+      <td><%= enfermedad_actual.compromiso_sens_lhermitte %></td>
+      <td><%= enfermedad_actual.disfuncion_intest_vesical %></td>
+      <td><%= enfermedad_actual.disfuncion_sexual %></td>
+      <td><%= enfermedad_actual.trastorno_oculomotor %></td>
+      <td><%= enfermedad_actual.trastorno_vestib_coclear %></td>
+      <td><%= enfermedad_actual.trastorno_lenguaje_deglucion %></td>
+      <td><%= enfermedad_actual.neuritis_optica %></td>
+      <td><%= enfermedad_actual.disfuncion_cognitiva %></td>
+      <td><%= enfermedad_actual.sintomas_psiquiatricos %></td>
+      <td><%= enfermedad_actual.fatiga %></td>
+      <td><%= enfermedad_actual.sind_uhtoff %></td>
+      <td><%= enfermedad_actual.otros %></td>
+      <td><%= enfermedad_actual.severidad %></td>
+      <td><%= enfermedad_actual.recuperacion %></td>
+      <td><%= enfermedad_actual.certeza %></td>
+      <td><%= enfermedad_actual.evento_asociado %></td>
+      <td><%= enfermedad_actual.dias_hospitalizacion %></td>
+      <td><%= enfermedad_actual.esteroides %></td>
+      <td><%= enfermedad_actual.dosis_esteroides %></td>
+      <td><%= enfermedad_actual.observaciones %></td>
+      <td><%= link_to 'Ver', enfermedad_actual %></td>
+      <td><%= link_to 'Editar', edit_enfermedad_actual_path(enfermedad_actual) %></td>
+      <td><%= link_to 'Eliminar', enfermedad_actual, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

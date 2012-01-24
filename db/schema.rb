@@ -11,7 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907010423) do
+ActiveRecord::Schema.define(:version => 20120124005709) do
+
+  create_table "antecedentes", :force => true do |t|
+    t.string   "patologicos"
+    t.string   "autoinmunes"
+    t.string   "neurologicos"
+    t.string   "psiquiatricos"
+    t.string   "quirurgicos"
+    t.integer  "gineco_g"
+    t.integer  "gineco_p"
+    t.integer  "gineco_c"
+    t.integer  "gineco_a"
+    t.integer  "gineco_e"
+    t.integer  "gineco_v"
+    t.string   "gineco_anticoncepcion"
+    t.string   "toxicos"
+    t.string   "adicciones"
+    t.string   "alergicos"
+    t.string   "vacunas_recientes"
+    t.string   "traumaticos"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "enfermedad_actuals", :force => true do |t|
+    t.string   "fuente_inf"
+    t.date     "fecha_inicio"
+    t.integer  "duracion"
+    t.text     "descripcion_semiol"
+    t.boolean  "dificultad_caminar"
+    t.string   "compromiso_motor_ext_sup"
+    t.string   "compromiso_motor_ext_inf"
+    t.boolean  "compromiso_motor_facial"
+    t.string   "compromiso_sens_ext_sup"
+    t.string   "compromiso_sens_ext_inf"
+    t.boolean  "compromiso_sens_tronco"
+    t.boolean  "compromiso_sens_lhermitte"
+    t.boolean  "disfuncion_intest_vesical"
+    t.boolean  "disfuncion_sexual"
+    t.boolean  "trastorno_oculomotor"
+    t.boolean  "trastorno_vestib_coclear"
+    t.boolean  "trastorno_lenguaje_deglucion"
+    t.string   "neuritis_optica"
+    t.boolean  "disfuncion_cognitiva"
+    t.boolean  "sintomas_psiquiatricos"
+    t.boolean  "fatiga"
+    t.string   "sind_uhtoff"
+    t.boolean  "otros"
+    t.string   "severidad"
+    t.string   "recuperacion"
+    t.string   "certeza"
+    t.string   "evento_asociado"
+    t.integer  "dias_hospitalizacion"
+    t.string   "esteroides"
+    t.string   "dosis_esteroides"
+    t.text     "observaciones"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "lesion_locations", :force => true do |t|
     t.string   "region"

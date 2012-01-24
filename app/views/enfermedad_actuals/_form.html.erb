@@ -1,0 +1,46 @@
+<%= simple_form_for(@enfermedad_actual) do |f| %>
+  <% if @enfermedad_actual.errors.any? %>
+    <div class="alert-message error">
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :fuente_inf %>
+    <%= f.input :fecha_inicio %>
+    <%= f.input :duracion %>
+    <%= f.input :descripcion_semiol %>
+    <%= f.input :dificultad_caminar %>
+    <%= f.input :compromiso_motor_ext_sup %>
+    <%= f.input :compromiso_motor_ext_inf %>
+    <%= f.input :compromiso_motor_facial %>
+    <%= f.input :compromiso_sens_ext_sup %>
+    <%= f.input :compromiso_sens_ext_inf %>
+    <%= f.input :compromiso_sens_tronco %>
+    <%= f.input :compromiso_sens_lhermitte %>
+    <%= f.input :disfuncion_intest_vesical %>
+    <%= f.input :disfuncion_sexual %>
+    <%= f.input :trastorno_oculomotor %>
+    <%= f.input :trastorno_vestib_coclear %>
+    <%= f.input :trastorno_lenguaje_deglucion %>
+    <%= f.input :neuritis_optica %>
+    <%= f.input :disfuncion_cognitiva %>
+    <%= f.input :sintomas_psiquiatricos %>
+    <%= f.input :fatiga %>
+    <%= f.input :sind_uhtoff %>
+    <%= f.input :otros %>
+    <%= f.input :severidad %>
+    <%= f.input :recuperacion %>
+    <%= f.input :certeza %>
+    <%= f.input :evento_asociado %>
+    <%= f.input :dias_hospitalizacion %>
+    <%= f.input :esteroides %>
+    <%= f.input :dosis_esteroides %>
+    <%= f.input :observaciones %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+
