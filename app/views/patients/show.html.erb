@@ -61,3 +61,13 @@
 
 <%= link_to 'Editar', edit_patient_path(@patient) %> |
 <%= link_to 'Atras', patients_path %>
+
+<ul id='visits'>
+  <% @patient.visits.each do |visit| %>
+    <li>
+      #<%= visit.id %> - <%= link_to visit.visit_date, [@patient, visit] %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Nueva visita", new_patient_visit_path(@patient) %>

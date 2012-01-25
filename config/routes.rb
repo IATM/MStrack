@@ -3,13 +3,13 @@ MStrack::Application.routes.draw do
 
   resources :antecedentes
 
-  resources :visits
-
   resources :lesions
 
   resources :lesion_locations
 
-  resources :patients
+  resources :patients do
+    resources :visits
+  end
 
   devise_for :users
 
