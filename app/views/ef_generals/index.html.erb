@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to 'Nuevo Ef general', new_ef_general_path, :class => 'btn primary' %>
+  <h1>Listado de ef_generals</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Pa sistolica</th>
+      <th>Pa diastolica</th>
+      <th>Fc</th>
+      <th>Peso</th>
+      <th>Talla</th>
+      <th>Hallazgos</th>
+      <th>Visit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @ef_generals.each do |ef_general| %>
+    <tr>
+      <td><%= ef_general.pa_sistolica %></td>
+      <td><%= ef_general.pa_diastolica %></td>
+      <td><%= ef_general.fc %></td>
+      <td><%= ef_general.peso %></td>
+      <td><%= ef_general.talla %></td>
+      <td><%= ef_general.hallazgos %></td>
+      <td><%= ef_general.visit %></td>
+      <td><%= link_to 'Ver', ef_general %></td>
+      <td><%= link_to 'Editar', edit_ef_general_path(ef_general) %></td>
+      <td><%= link_to 'Eliminar', ef_general, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

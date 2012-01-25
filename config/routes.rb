@@ -1,4 +1,12 @@
 MStrack::Application.routes.draw do
+  resources :ef_columnas
+
+  resources :ef_psiqus
+
+  resources :ef_mentals
+
+  resources :ef_generals
+
   resources :enfermedad_actuals
 
   resources :antecedentes

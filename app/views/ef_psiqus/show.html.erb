@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to 'Atras', ef_psiqus_path, :class => 'btn' %>
+  <%= link_to 'Editar', edit_ef_psiqu_path(@ef_psiqu), :class => 'btn primary' %>
+  <h1>Listing ef_psiqus</h1>
+</div>
+
+<dl>
+  <dt>Distimia depresion:</dt>
+  <dd><%= @ef_psiqu.distimia_depresion %></dd>
+
+  <dt>Hipertimia:</dt>
+  <dd><%= @ef_psiqu.hipertimia %></dd>
+
+  <dt>Idea delirante:</dt>
+  <dd><%= @ef_psiqu.idea_delirante %></dd>
+
+  <dt>Alucinaciones:</dt>
+  <dd><%= @ef_psiqu.alucinaciones %></dd>
+
+  <dt>Visit:</dt>
+  <dd><%= @ef_psiqu.visit %></dd>
+
+</dl>

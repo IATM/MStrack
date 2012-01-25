@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to 'Atras', ef_mentals_path, :class => 'btn' %>
+  <%= link_to 'Editar', edit_ef_mental_path(@ef_mental), :class => 'btn primary' %>
+  <h1>Listing ef_mentals</h1>
+</div>
+
+<dl>
+  <dt>Conciencia:</dt>
+  <dd><%= @ef_mental.conciencia %></dd>
+
+  <dt>Atencion:</dt>
+  <dd><%= @ef_mental.atencion %></dd>
+
+  <dt>Memoria:</dt>
+  <dd><%= @ef_mental.memoria %></dd>
+
+  <dt>Lenguaje:</dt>
+  <dd><%= @ef_mental.lenguaje %></dd>
+
+  <dt>Visit:</dt>
+  <dd><%= @ef_mental.visit %></dd>
+
+</dl>

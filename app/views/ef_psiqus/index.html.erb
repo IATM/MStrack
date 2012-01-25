@@ -1,0 +1,34 @@
+<div class="page-header">
+  <%= link_to 'Nuevo Ef psiqu', new_ef_psiqu_path, :class => 'btn primary' %>
+  <h1>Listado de ef_psiqus</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Distimia depresion</th>
+      <th>Hipertimia</th>
+      <th>Idea delirante</th>
+      <th>Alucinaciones</th>
+      <th>Visit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @ef_psiqus.each do |ef_psiqu| %>
+    <tr>
+      <td><%= ef_psiqu.distimia_depresion %></td>
+      <td><%= ef_psiqu.hipertimia %></td>
+      <td><%= ef_psiqu.idea_delirante %></td>
+      <td><%= ef_psiqu.alucinaciones %></td>
+      <td><%= ef_psiqu.visit %></td>
+      <td><%= link_to 'Ver', ef_psiqu %></td>
+      <td><%= link_to 'Editar', edit_ef_psiqu_path(ef_psiqu) %></td>
+      <td><%= link_to 'Eliminar', ef_psiqu, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

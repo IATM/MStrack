@@ -1,0 +1,34 @@
+<div class="page-header">
+  <%= link_to 'Nuevo Ef mental', new_ef_mental_path, :class => 'btn primary' %>
+  <h1>Listado de ef_mentals</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Conciencia</th>
+      <th>Atencion</th>
+      <th>Memoria</th>
+      <th>Lenguaje</th>
+      <th>Visit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @ef_mentals.each do |ef_mental| %>
+    <tr>
+      <td><%= ef_mental.conciencia %></td>
+      <td><%= ef_mental.atencion %></td>
+      <td><%= ef_mental.memoria %></td>
+      <td><%= ef_mental.lenguaje %></td>
+      <td><%= ef_mental.visit %></td>
+      <td><%= link_to 'Ver', ef_mental %></td>
+      <td><%= link_to 'Editar', edit_ef_mental_path(ef_mental) %></td>
+      <td><%= link_to 'Eliminar', ef_mental, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

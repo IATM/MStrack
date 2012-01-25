@@ -1,0 +1,2 @@
+module EfMentalsHelper
+end
