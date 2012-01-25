@@ -1,4 +1,9 @@
 class VisitsController < ApplicationController
+  before_filter :find_patient
+  before_filter :find_visit, :only => [:show,
+                                       :edit,
+                                       :update,
+                                       :destroy]
   before_filter :authenticate_user!
   # GET /visits
   # GET /visits.json
@@ -25,13 +30,14 @@ class VisitsController < ApplicationController
   # GET /visits/new
   # GET /visits/new.json
   def new
-    @visit = Visit.new
+    @visit = @patient.visits.build
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @visit }
     end
   end
+  
 
   # GET /visits/1/edit
   def edit
@@ -41,11 +47,11 @@ class VisitsController < ApplicationController
   # POST /visits
   # POST /visits.json
   def create
-    @visit = Visit.new(params[:visit])
+    @visit = @patient.visits.build(params[:visit])
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to [@patient, @visit], notice: 'Visit was successfully created.' }
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.html { render action: "new" }
@@ -81,4 +87,14 @@ class VisitsController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  private
+    def find_patient
+      @patient = Patient.find(params[:patient_id])
+    end
+    
+    def find_visit
+      @visit = @patient.visits.find(params[:id])
+    end
+  
 end
