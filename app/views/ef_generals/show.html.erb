@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to 'Atras', ef_generals_path, :class => 'btn' %>
+  <%= link_to 'Editar', edit_ef_general_path(@ef_general), :class => 'btn primary' %>
+  <h1>Listing ef_generals</h1>
+</div>
+
+<dl>
+  <dt>Pa sistolica:</dt>
+  <dd><%= @ef_general.pa_sistolica %></dd>
+
+  <dt>Pa diastolica:</dt>
+  <dd><%= @ef_general.pa_diastolica %></dd>
+
+  <dt>Fc:</dt>
+  <dd><%= @ef_general.fc %></dd>
+
+  <dt>Peso:</dt>
+  <dd><%= @ef_general.peso %></dd>
+
+  <dt>Talla:</dt>
+  <dd><%= @ef_general.talla %></dd>
+
+  <dt>Hallazgos:</dt>
+  <dd><%= @ef_general.hallazgos %></dd>
+
+  <dt>Visit:</dt>
+  <dd><%= @ef_general.visit %></dd>
+
+</dl>

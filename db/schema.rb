@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124005709) do
+ActiveRecord::Schema.define(:version => 20120125212107) do
 
   create_table "antecedentes", :force => true do |t|
     t.string   "patologicos"
@@ -34,6 +34,55 @@ ActiveRecord::Schema.define(:version => 20120124005709) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end
+
+  create_table "ef_columnas", :force => true do |t|
+    t.boolean  "estado"
+    t.boolean  "signos_meningeos"
+    t.boolean  "signos_radiculares"
+    t.integer  "visit_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "ef_columnas", ["visit_id"], :name => "index_ef_columnas_on_visit_id"
+
+  create_table "ef_generals", :force => true do |t|
+    t.integer  "pa_sistolica"
+    t.integer  "pa_diastolica"
+    t.integer  "fc"
+    t.integer  "peso"
+    t.integer  "talla"
+    t.text     "hallazgos"
+    t.integer  "visit_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "ef_generals", ["visit_id"], :name => "index_ef_generals_on_visit_id"
+
+  create_table "ef_mentals", :force => true do |t|
+    t.boolean  "conciencia"
+    t.boolean  "atencion"
+    t.boolean  "memoria"
+    t.string   "lenguaje"
+    t.integer  "visit_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ef_mentals", ["visit_id"], :name => "index_ef_mentals_on_visit_id"
+
+  create_table "ef_psiqus", :force => true do |t|
+    t.boolean  "distimia_depresion"
+    t.boolean  "hipertimia"
+    t.boolean  "idea_delirante"
+    t.string   "alucinaciones"
+    t.integer  "visit_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "ef_psiqus", ["visit_id"], :name => "index_ef_psiqus_on_visit_id"
 
   create_table "enfermedad_actuals", :force => true do |t|
     t.string   "fuente_inf"

@@ -1,0 +1,22 @@
+<%= simple_form_for(@ef_general) do |f| %>
+  <% if @ef_general.errors.any? %>
+    <div class="alert-message error">
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :pa_sistolica %>
+    <%= f.input :pa_diastolica %>
+    <%= f.input :fc %>
+    <%= f.input :peso %>
+    <%= f.input :talla %>
+    <%= f.input :hallazgos %>
+    <%= f.association :visit %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+

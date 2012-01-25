@@ -1,0 +1,32 @@
+<div class="page-header">
+  <%= link_to 'Nuevo Ef columna', new_ef_columna_path, :class => 'btn primary' %>
+  <h1>Listado de ef_columnas</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th>Signos meningeos</th>
+      <th>Signos radiculares</th>
+      <th>Visit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @ef_columnas.each do |ef_columna| %>
+    <tr>
+      <td><%= ef_columna.estado %></td>
+      <td><%= ef_columna.signos_meningeos %></td>
+      <td><%= ef_columna.signos_radiculares %></td>
+      <td><%= ef_columna.visit %></td>
+      <td><%= link_to 'Ver', ef_columna %></td>
+      <td><%= link_to 'Editar', edit_ef_columna_path(ef_columna) %></td>
+      <td><%= link_to 'Eliminar', ef_columna, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
