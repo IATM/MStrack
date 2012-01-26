@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<section id="visits">
+<div class="page-header"><h1>Paciente</h1></div>
 <p>
   <b>Nombre:</b>
   <%= @patient.first_name %>
@@ -59,17 +60,32 @@
   <b>Celular:</b>
   <%= @patient.mobile_phone %>
 </p>
+</div>
+</section>
+
+<section id="visits">
+<div class="page-header"><small>Visitas</small></div>
+<div class="row">
+<table class="bordered-table zebra-striped">
+  <thead>
+	<tr>
+      <th>Fecha de la visita</th>
+      <th>Médico Remitente</th>
+    </tr>
+  </thead>
+
+<% @patient.visits.each do |visit| %>
+  <tr>
+    <td><%= link_to visit.visit_date, [@patient, visit] %></td>
+    <td><%= visit.ref_physician %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+</div>
+</section>
 
 
 <%= link_to 'Editar', edit_patient_path(@patient) %> |
 <%= link_to 'Atras', patients_path %>
-
-<ul id='visits'>
-  <% @patient.visits.each do |visit| %>
-    <li>
-      #<%= visit.id %> - <%= link_to visit.visit_date, [@patient, visit] %>
-    </li>
-  <% end %>
-</ul>
-
 <%= link_to "Nueva visita", new_patient_visit_path(@patient) %>

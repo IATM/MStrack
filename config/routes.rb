@@ -1,5 +1,4 @@
 MStrack::Application.routes.draw do
-  resources :enfermedad_actuals
 
   resources :antecedentes
 
@@ -8,7 +7,9 @@ MStrack::Application.routes.draw do
   resources :lesion_locations
 
   resources :patients do
-    resources :visits
+    resources :visits do
+      resources :enfermedad_actuals
+    end
   end
 
   devise_for :users

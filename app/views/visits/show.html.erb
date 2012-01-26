@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<section id="visit">
+<div class="page-header"><h1>Visita</h1></div>
 <p>
   <b>Visit date:</b>
   <%= @visit.visit_date %>
@@ -19,7 +21,29 @@
   <b>Imaging center:</b>
   <%= @visit.imaging_center %>
 </p>
+</div>
+</section>
 
+<section id="enfermedad_actual">
+<div class="page-header"><h1><small>Enfermedad actual</small></h1></div>
+<div class="row">
+<table class="bordered-table zebra-striped">
+  <thead>
+	<tr>
+      <th>Fecha</th>
+      <th>Descripción semiología</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_patient_visit_path(@patient) %> |
-<%= link_to 'Back', patient_visits_path %>
+  <tr>
+    <td><%= link_to @visit.enfermedad_actual.fecha_inicio, [@patient, @visit, @visit.enfermedad_actual] %></td>
+    <td><%= @visit.enfermedad_actual.descripcion_semiol %></td>
+  </tr>
+</table>
+</div>
+</div>
+</section>
+
+<%= link_to 'Editar información de la visita', edit_patient_visit_path(@patient) %> |
+<%= link_to 'Ver paciente', patient_path(@patient) %>
+<% if @visit.enfermedad_actual.nil? %> |<%= link_to "Añadir enfermedad actual", new_patient_visit_enfermedad_actual_path(@patient,@visit) %><% end %>
