@@ -1,0 +1,19 @@
+<%= simple_form_for(@ef_columna) do |f| %>
+  <% if @ef_columna.errors.any? %>
+    <div class="alert-message error">
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :estado %>
+    <%= f.input :signos_meningeos %>
+    <%= f.input :signos_radiculares %>
+    <%= f.association :visit %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+

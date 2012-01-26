@@ -1,0 +1,20 @@
+<%= simple_form_for(@ef_mental) do |f| %>
+  <% if @ef_mental.errors.any? %>
+    <div class="alert-message error">
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.input :conciencia %>
+    <%= f.input :atencion %>
+    <%= f.input :memoria %>
+    <%= f.input :lenguaje, :collection => ["Normal", "Afasia sensitiva", "Afasia Motora", "Anomia"] %>
+    <%= f.association :visit %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+
