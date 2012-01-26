@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125212107) do
+ActiveRecord::Schema.define(:version => 20120126212426) do
 
   create_table "antecedentes", :force => true do |t|
     t.string   "patologicos"
@@ -71,6 +71,44 @@ ActiveRecord::Schema.define(:version => 20120125212107) do
   end
 
   add_index "ef_mentals", ["visit_id"], :name => "index_ef_mentals_on_visit_id"
+
+  create_table "ef_pares", :force => true do |t|
+    t.integer  "visit_id"
+    t.boolean  "olfato_gusto"
+    t.string   "disminucion_av"
+    t.string   "dolor_ocular"
+    t.string   "desaturacion_rojo"
+    t.string   "dpar"
+    t.string   "escotoma"
+    t.string   "disco_palido"
+    t.string   "ii_otro"
+    t.boolean  "diplopia"
+    t.boolean  "oscilopsia"
+    t.string   "paralisis_mirada"
+    t.string   "hipoestesias_trig"
+    t.string   "parestesias_trig"
+    t.string   "neuralgia_trig"
+    t.string   "dolor_atipico_cara"
+    t.string   "reflejo_corneano_abolido"
+    t.string   "v_compromiso_motor"
+    t.string   "vii_paralisis"
+    t.string   "vii_hemiespasmo"
+    t.boolean  "vertigo"
+    t.string   "hipoacusia"
+    t.boolean  "acufenos"
+    t.string   "nistagmus"
+    t.boolean  "test_sacudida_cefalica"
+    t.boolean  "disfonia"
+    t.boolean  "disfagia"
+    t.string   "nauseoso"
+    t.boolean  "paralisis_velo"
+    t.boolean  "desviacion_lengua"
+    t.boolean  "xi_comprometido"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "ef_pares", ["visit_id"], :name => "index_ef_pares_on_visit_id"
 
   create_table "ef_psiqus", :force => true do |t|
     t.boolean  "distimia_depresion"

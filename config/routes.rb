@@ -1,4 +1,6 @@
 MStrack::Application.routes.draw do
+  resources :ef_pares
+
   resources :ef_columnas
 
   resources :ef_psiqus

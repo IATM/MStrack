@@ -1,0 +1,86 @@
+<div class="page-header">
+  <%= link_to 'Nuevo Ef pare', new_ef_pare_path, :class => 'btn primary' %>
+  <h1>Listado de ef_pares</h1>
+</div>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Visit</th>
+      <th>Olfato gusto</th>
+      <th>Disminucion av</th>
+      <th>Dolor ocular</th>
+      <th>Desaturacion rojo</th>
+      <th>Dpar</th>
+      <th>Escotoma</th>
+      <th>Disco palido</th>
+      <th>Ii otro</th>
+      <th>Diplopia</th>
+      <th>Oscilopsia</th>
+      <th>Paralisis mirada</th>
+      <th>Hipoestesias trig</th>
+      <th>Parestesias trig</th>
+      <th>Neuralgia trig</th>
+      <th>Dolor atipico cara</th>
+      <th>Reflejo corneano abolido</th>
+      <th>V compromiso motor</th>
+      <th>Vii paralisis</th>
+      <th>Vii hemiespasmo</th>
+      <th>Vertigo</th>
+      <th>Hipoacusia</th>
+      <th>Acufenos</th>
+      <th>Nistagmus</th>
+      <th>Test sacudida cefalica</th>
+      <th>Disfonia</th>
+      <th>Disfagia</th>
+      <th>Nauseoso</th>
+      <th>Paralisis velo</th>
+      <th>Desviacion lengua</th>
+      <th>Xi comprometido</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @ef_pares.each do |ef_pare| %>
+    <tr>
+      <td><%= ef_pare.visit %></td>
+      <td><%= ef_pare.olfato_gusto %></td>
+      <td><%= ef_pare.disminucion_av %></td>
+      <td><%= ef_pare.dolor_ocular %></td>
+      <td><%= ef_pare.desaturacion_rojo %></td>
+      <td><%= ef_pare.dpar %></td>
+      <td><%= ef_pare.escotoma %></td>
+      <td><%= ef_pare.disco_palido %></td>
+      <td><%= ef_pare.ii_otro %></td>
+      <td><%= ef_pare.diplopia %></td>
+      <td><%= ef_pare.oscilopsia %></td>
+      <td><%= ef_pare.paralisis_mirada %></td>
+      <td><%= ef_pare.hipoestesias_trig %></td>
+      <td><%= ef_pare.parestesias_trig %></td>
+      <td><%= ef_pare.neuralgia_trig %></td>
+      <td><%= ef_pare.dolor_atipico_cara %></td>
+      <td><%= ef_pare.reflejo_corneano_abolido %></td>
+      <td><%= ef_pare.v_compromiso_motor %></td>
+      <td><%= ef_pare.vii_paralisis %></td>
+      <td><%= ef_pare.vii_hemiespasmo %></td>
+      <td><%= ef_pare.vertigo %></td>
+      <td><%= ef_pare.hipoacusia %></td>
+      <td><%= ef_pare.acufenos %></td>
+      <td><%= ef_pare.nistagmus %></td>
+      <td><%= ef_pare.test_sacudida_cefalica %></td>
+      <td><%= ef_pare.disfonia %></td>
+      <td><%= ef_pare.disfagia %></td>
+      <td><%= ef_pare.nauseoso %></td>
+      <td><%= ef_pare.paralisis_velo %></td>
+      <td><%= ef_pare.desviacion_lengua %></td>
+      <td><%= ef_pare.xi_comprometido %></td>
+      <td><%= link_to 'Ver', ef_pare %></td>
+      <td><%= link_to 'Editar', edit_ef_pare_path(ef_pare) %></td>
+      <td><%= link_to 'Eliminar', ef_pare, confirm: 'Esta seguro?', method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
