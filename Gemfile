@@ -52,4 +52,5 @@ end
 gem 'simple_form'
 
 # Twitter Bootstrap
-gem 'bootstrap-generators'
+# gem 'bootstrap-generators'
+gem 'twitter-bootstrap-rails', :group => :assets
