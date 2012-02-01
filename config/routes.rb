@@ -1,4 +1,8 @@
 MStrack::Application.routes.draw do
+<<<<<<< HEAD
+=======
+  resources :ef_pares
+>>>>>>> efpares
 
   resources :ef_columnas
 
