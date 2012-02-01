@@ -1,4 +1,11 @@
 class AntecedentesController < ApplicationController
+  before_filter :find_patient
+  before_filter :find_antecedente, :only => [:show,
+                                       :edit,
+                                       :update,
+                                       :destroy]
+  before_filter :authenticate_user!
+  
   # GET /antecedentes
   # GET /antecedentes.json
   def index
@@ -24,7 +31,7 @@ class AntecedentesController < ApplicationController
   # GET /antecedentes/new
   # GET /antecedentes/new.json
   def new
-    @antecedente = Antecedente.new
+    @antecedente = @patient.build_antecedente
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +47,11 @@ class AntecedentesController < ApplicationController
   # POST /antecedentes
   # POST /antecedentes.json
   def create
-    @antecedente = Antecedente.new(params[:antecedente])
+    @antecedente = @patient.create_antecedente(params[:antecedente])
 
     respond_to do |format|
       if @antecedente.save
-        format.html { redirect_to @antecedente, notice: 'Antecedente was successfully created.' }
+        format.html { redirect_to [@patient, @antecedente], notice: 'Antecedente creado satisfactoriamente.' }
         format.json { render json: @antecedente, status: :created, location: @antecedente }
       else
         format.html { render action: "new" }
@@ -60,7 +67,7 @@ class AntecedentesController < ApplicationController
 
     respond_to do |format|
       if @antecedente.update_attributes(params[:antecedente])
-        format.html { redirect_to @antecedente, notice: 'Antecedente was successfully updated.' }
+        format.html { redirect_to [@patient, @antecedente], notice: 'Antecedente was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +87,13 @@ class AntecedentesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def find_patient
+      @patient = Patient.find(params[:patient_id])
+    end
+    
+    def find_antecedente
+      @antecedente = @patient.antecedente
+    end
 end

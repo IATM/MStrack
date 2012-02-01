@@ -1,8 +1,17 @@
 class EnfermedadActualsController < ApplicationController
+  before_filter :find_visit_and_patient
+  before_filter :find_enfermedad_actual, :only => [:show,
+                                                :edit,
+                                                :update,
+                                                :destroy,
+                                                :index]
+  before_filter :authenticate_user!
+  
   # GET /enfermedad_actuals
   # GET /enfermedad_actuals.json
   def index
-    @enfermedad_actuals = EnfermedadActual.all
+    #@enfermedad_actuals = EnfermedadActual.all
+    #@enfermedad_actual = @visit.enfermedad_actual
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +33,7 @@ class EnfermedadActualsController < ApplicationController
   # GET /enfermedad_actuals/new
   # GET /enfermedad_actuals/new.json
   def new
-    @enfermedad_actual = EnfermedadActual.new
+    @enfermedad_actual = @visit.build_enfermedad_actual
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +49,11 @@ class EnfermedadActualsController < ApplicationController
   # POST /enfermedad_actuals
   # POST /enfermedad_actuals.json
   def create
-    @enfermedad_actual = EnfermedadActual.new(params[:enfermedad_actual])
+    @enfermedad_actual = @visit.create_enfermedad_actual(params[:enfermedad_actual])
 
     respond_to do |format|
       if @enfermedad_actual.save
-        format.html { redirect_to @enfermedad_actual, notice: 'Enfermedad actual was successfully created.' }
+        format.html { redirect_to [@patient,@visit,@enfermedad_actual], notice: 'Enfermedad actual was successfully created.' }
         format.json { render json: @enfermedad_actual, status: :created, location: @enfermedad_actual }
       else
         format.html { render action: "new" }
@@ -60,7 +69,7 @@ class EnfermedadActualsController < ApplicationController
 
     respond_to do |format|
       if @enfermedad_actual.update_attributes(params[:enfermedad_actual])
-        format.html { redirect_to @enfermedad_actual, notice: 'Enfermedad actual was successfully updated.' }
+        format.html { redirect_to [@patient,@visit,@enfermedad_actual], notice: 'Enfermedad actual was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +89,15 @@ class EnfermedadActualsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def find_visit_and_patient
+      @visit = Visit.find(params[:visit_id])
+      @patient = @visit.patient
+    end
+    
+    def find_enfermedad_actual
+      @enfermedad_actual = @visit.enfermedad_actual
+    end
+  
 end

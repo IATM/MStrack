@@ -1,4 +1,12 @@
 class EfColumnasController < ApplicationController
+  before_filter :find_visit_and_patient
+  before_filter :find_ef_columna, :only => [:show,
+                                                :edit,
+                                                :update,
+                                                :destroy,
+                                                :index]
+  before_filter :authenticate_user!
+  
   # GET /ef_columnas
   # GET /ef_columnas.json
   def index
@@ -24,7 +32,7 @@ class EfColumnasController < ApplicationController
   # GET /ef_columnas/new
   # GET /ef_columnas/new.json
   def new
-    @ef_columna = EfColumna.new
+    @ef_columna = @visit.build_ef_columna
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +48,11 @@ class EfColumnasController < ApplicationController
   # POST /ef_columnas
   # POST /ef_columnas.json
   def create
-    @ef_columna = EfColumna.new(params[:ef_columna])
+    @ef_columna = @visit.create_ef_columna(params[:ef_columna])
 
     respond_to do |format|
       if @ef_columna.save
-        format.html { redirect_to @ef_columna, notice: 'Ef columna was successfully created.' }
+        format.html { redirect_to [@patient,@visit,@ef_columna], notice: 'Ef columna was successfully created.' }
         format.json { render json: @ef_columna, status: :created, location: @ef_columna }
       else
         format.html { render action: "new" }
@@ -60,7 +68,7 @@ class EfColumnasController < ApplicationController
 
     respond_to do |format|
       if @ef_columna.update_attributes(params[:ef_columna])
-        format.html { redirect_to @ef_columna, notice: 'Ef columna was successfully updated.' }
+        format.html { redirect_to [@patient,@visit,@ef_columna], notice: 'Ef columna was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +88,14 @@ class EfColumnasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def find_visit_and_patient
+      @visit = Visit.find(params[:visit_id])
+      @patient = @visit.patient
+    end
+    
+    def find_ef_columna
+      @ef_columna = @visit.ef_columna
+    end
 end

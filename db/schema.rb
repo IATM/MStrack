@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125212107) do
+ActiveRecord::Schema.define(:version => 20120126170252) do
 
   create_table "antecedentes", :force => true do |t|
     t.string   "patologicos"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120125212107) do
     t.string   "traumaticos"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "patient_id"
   end
 
   create_table "ef_columnas", :force => true do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20120125212107) do
     t.text     "observaciones"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.integer  "visit_id"
   end
 
   create_table "lesion_locations", :force => true do |t|
