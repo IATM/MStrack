@@ -1,4 +1,4 @@
-<%= simple_form_for(@patient) do |f| %>
+<%= simple_form_for(@patient, :class => 'form-inline') do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> impidio que se grabara este paciente:</h2>
@@ -11,8 +11,12 @@
     </div>
 	
   <% end %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
+  <div class="row">
+	  <div class "span9">
+    <%= f.input :first_name, :class =>"input-small" %>
+    <%= f.input :last_name, :class =>"input-small" %>
+	</div>
+  </div>
     <%= f.input :identification %>
     <%= f.input :sex %>
     <%= f.input :birthdate %>

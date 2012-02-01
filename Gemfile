@@ -49,7 +49,7 @@ group :test do
 end
 
 # Simple form
-gem 'simple_form'
+gem 'simple_form' #, :git => 'https://github.com/plataformatec/simple_form.git'
 
 # Twitter Bootstrap
 # gem 'bootstrap-generators'
