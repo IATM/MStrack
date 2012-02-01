@@ -8,8 +8,6 @@ MStrack::Application.routes.draw do
 
   resources :ef_generals
 
-  resources :antecedentes
-
   resources :lesions
 
   resources :lesion_locations
@@ -17,7 +15,12 @@ MStrack::Application.routes.draw do
   resources :patients do
     resources :visits do
       resources :enfermedad_actuals
+      resources :ef_columnas
+      resources :ef_generals
+      resources :ef_mentals
+      resources :ef_psiqus
     end
+    resources :antecedentes
   end
 
   devise_for :users

@@ -1,7 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class="page-header">
+  <%= link_to 'Listado de pacientes', patients_path, :class => 'btn' %>
+  <%= link_to 'Editar',  edit_patient_path(@patient), :class => 'btn primary' %>
+  <%= link_to "Nueva visita", new_patient_visit_path(@patient), :class => 'btn primary' %>
+  <h1>Información del paciente</h1>
+</div>
+
 <section id="visits">
-<div class="page-header"><h1>Paciente</h1></div>
 <p>
   <b>Nombre:</b>
   <%= @patient.first_name %>
@@ -61,11 +67,16 @@
   <b>Celular:</b>
   <%= @patient.mobile_phone %>
 </p>
+<p>
+  <b>Antecedentes:</b>
+  <%= link_to "Ver", [@patient, @patient.antecedente], :class => 'btn primary' if !@patient.antecedente.nil? %>
+</p>
+
 </div>
 </section>
 
 <section id="visits">
-<div class="page-header"><small>Visitas</small></div>
+<div class="page-header"><h1><small>Visitas</small></h1></div>
 <div class="row">
 <table class="bordered-table zebra-striped">
   <thead>
@@ -88,5 +99,6 @@
 
 
 <%= link_to 'Editar', edit_patient_path(@patient) %> |
-<%= link_to 'Atras', patients_path %>
+<%= link_to 'Atras', patients_path %> |
 <%= link_to "Nueva visita", new_patient_visit_path(@patient) %>
+<% if @patient.antecedente.nil? %> |<%= link_to "Ingresar antecedentes", new_patient_antecedente_path(@patient) %><% end %>

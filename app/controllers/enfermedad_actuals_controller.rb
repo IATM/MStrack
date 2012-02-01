@@ -5,6 +5,7 @@ class EnfermedadActualsController < ApplicationController
                                                 :update,
                                                 :destroy,
                                                 :index]
+  before_filter :authenticate_user!
   
   # GET /enfermedad_actuals
   # GET /enfermedad_actuals.json
