@@ -1,4 +1,12 @@
 class EfPsiqusController < ApplicationController
+  before_filter :find_visit_and_patient
+  before_filter :find_ef_psiqu, :only => [:show,
+                                                :edit,
+                                                :update,
+                                                :destroy,
+                                                :index]
+  before_filter :authenticate_user!
+  
   # GET /ef_psiqus
   # GET /ef_psiqus.json
   def index
@@ -24,7 +32,7 @@ class EfPsiqusController < ApplicationController
   # GET /ef_psiqus/new
   # GET /ef_psiqus/new.json
   def new
-    @ef_psiqu = EfPsiqu.new
+    @ef_psiqu = @visit.build_ef_psiqu
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +48,11 @@ class EfPsiqusController < ApplicationController
   # POST /ef_psiqus
   # POST /ef_psiqus.json
   def create
-    @ef_psiqu = EfPsiqu.new(params[:ef_psiqu])
+    @ef_psiqu = @visit.create_ef_psiqu(params[:ef_psiqu])
 
     respond_to do |format|
       if @ef_psiqu.save
-        format.html { redirect_to @ef_psiqu, notice: 'Ef psiqu was successfully created.' }
+        format.html { redirect_to [@patient,@visit,@ef_psiqu], notice: 'Ef psiqu was successfully created.' }
         format.json { render json: @ef_psiqu, status: :created, location: @ef_psiqu }
       else
         format.html { render action: "new" }
@@ -60,7 +68,7 @@ class EfPsiqusController < ApplicationController
 
     respond_to do |format|
       if @ef_psiqu.update_attributes(params[:ef_psiqu])
-        format.html { redirect_to @ef_psiqu, notice: 'Ef psiqu was successfully updated.' }
+        format.html { redirect_to [@patient,@visit,@ef_psiqu], notice: 'Ef psiqu was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +88,14 @@ class EfPsiqusController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def find_visit_and_patient
+      @visit = Visit.find(params[:visit_id])
+      @patient = @visit.patient
+    end
+    
+    def find_ef_psiqu
+      @ef_psiqu = @visit.ef_psiqu
+    end
 end
