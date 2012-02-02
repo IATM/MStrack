@@ -57,7 +57,9 @@
     <div class="content">
       <div class="row">
         <div class="span16">
-			<%= render 'common/header' %>
+			<% if @patient && @visit %>
+				<%= render 'common/header', :patient => @patient,:visit => @visit %>
+			<% end %>
 			<%= yield %>
         </div>
       </div>

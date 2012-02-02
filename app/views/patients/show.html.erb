@@ -1,82 +1,88 @@
-<p id="notice"><%= notice %></p>
+<section id="patient">
+	<div class="page-header">
+	  <%= link_to 'Listado de pacientes', patients_path, :class => 'btn primary' %>
+	  <%= link_to 'Editar',  edit_patient_path(@patient), :class => 'btn primary' %>
+	  <%= link_to "Nueva visita", new_patient_visit_path(@patient), :class => 'btn primary' %>
+	  <h2>Información del paciente</h2>
+	</div>
+	<div class ="row">
+		<p>
+		  <b>Nombre:</b>
+		  <%= @patient.first_name %>
+		</p>
 
-<div class="page-header">
-  <%= link_to 'Listado de pacientes', patients_path, :class => 'btn' %>
-  <%= link_to 'Editar',  edit_patient_path(@patient), :class => 'btn primary' %>
-  <%= link_to "Nueva visita", new_patient_visit_path(@patient), :class => 'btn primary' %>
-  <h1>Información del paciente</h1>
-</div>
+		<p>
+		  <b>Apellido:</b>
+		  <%= @patient.last_name %>
+		</p>
 
-<section id="visits">
-<p>
-  <b>Nombre:</b>
-  <%= @patient.first_name %>
-</p>
+		<p>
+		  <b>Identificacion:</b>
+		  <%= @patient.identification %>
+		</p>
 
-<p>
-  <b>Apellido:</b>
-  <%= @patient.last_name %>
-</p>
+		<p>
+		  <b>Sexo:</b>
+		  <%= @patient.sex %>
+		</p>
 
-<p>
-  <b>Identificacion:</b>
-  <%= @patient.identification %>
-</p>
+		<p>
+		  <b>Fecha Nacimiento:</b>
+		  <%= @patient.birthdate %>
+		</p>
 
-<p>
-  <b>Sexo:</b>
-  <%= @patient.sex %>
-</p>
+		<p>
+		  <b>Direccion 1:</b>
+		  <%= @patient.address_1 %>
+		</p>
 
-<p>
-  <b>Fecha Nacimiento:</b>
-  <%= @patient.birthdate %>
-</p>
+		<p>
+		  <b>Direccion 2:</b>
+		  <%= @patient.address_2 %>
+		</p>
 
-<p>
-  <b>Direccion 1:</b>
-  <%= @patient.address_1 %>
-</p>
+		<p>
+		  <b>Ciudad:</b>
+		  <%= @patient.city %>
+		</p>
 
-<p>
-  <b>Direccion 2:</b>
-  <%= @patient.address_2 %>
-</p>
+		<p>
+		  <b>Pais:</b>
+		  <%= @patient.country %>
+		</p>
 
-<p>
-  <b>Ciudad:</b>
-  <%= @patient.city %>
-</p>
+		<p>
+		  <b>Estado:</b>
+		  <%= @patient.address_state %>
+		</p>
 
-<p>
-  <b>Pais:</b>
-  <%= @patient.country %>
-</p>
+		<p>
+		  <b>Telefono:</b>
+		  <%= @patient.phone %>
+		</p>
 
-<p>
-  <b>Estado:</b>
-  <%= @patient.address_state %>
-</p>
+		<p>
+		  <b>Celular:</b>
+		  <%= @patient.mobile_phone %>
+		</p>
+		<p>
 
-<p>
-  <b>Telefono:</b>
-  <%= @patient.phone %>
-</p>
+		  <% if !@patient.antecedente.nil? %>
+		  	<b>Antecedentes:</b>
+		  	<%= link_to "Ver", [@patient, @patient.antecedente], :class => 'btn primary'%>
+		  <% end %>
+		  	<% if @patient.antecedente.nil? %>
+		  		<%= link_to "Ingresar antecedentes", new_patient_antecedente_path(@patient), :class => 'btn primary' %>
+			<% end %>
+	  	</p>
 
-<p>
-  <b>Celular:</b>
-  <%= @patient.mobile_phone %>
-</p>
-<p>
-  <b>Antecedentes:</b>
-  <%= link_to "Ver", [@patient, @patient.antecedente], :class => 'btn primary' if !@patient.antecedente.nil? %>
-</p>
-
-</div>
+	</div>
 </section>
 
 <section id="visits">
-<div class="page-header"><h1><small>Visitas</small></h1></div>
+	<div class="page-header">
+		<h3>Visitas</h3>
+	</div>
 <div class="row">
 <table class="bordered-table zebra-striped">
   <thead>
@@ -88,7 +94,7 @@
 
 <% @patient.visits.each do |visit| %>
   <tr>
-    <td><%= link_to visit.visit_date, [@patient, visit] %></td>
+    <td><%= link_to visit.visit_date.to_s(:short), [@patient, visit] %></td>
     <td><%= visit.ref_physician %></td>
   </tr>
 <% end %>
@@ -96,9 +102,3 @@
 </div>
 </div>
 </section>
-
-
-<%= link_to 'Editar', edit_patient_path(@patient) %> |
-<%= link_to 'Atras', patients_path %> |
-<%= link_to "Nueva visita", new_patient_visit_path(@patient) %>
-<% if @patient.antecedente.nil? %> |<%= link_to "Ingresar antecedentes", new_patient_antecedente_path(@patient) %><% end %>
