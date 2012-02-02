@@ -67,7 +67,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.update_attributes(params[:visit])
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to [@patient, @visit], notice: 'Visit was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

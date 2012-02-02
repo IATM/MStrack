@@ -1,5 +1,5 @@
 <div class="page-header">
-  <%= link_to 'Nuevo registro de enfermedad actual', new_enfermedad_actual_path, :class => 'btn primary' %>
+  <%= link_to 'Nuevo registro de enfermedad actual', new_patient_visit_enfermedad_actual_path, :class => 'btn primary' %>
   <h1>Listado de registros de enfermedad actual</h1>
 </div>
 
@@ -44,43 +44,43 @@
   </thead>
 
   <tbody>
-<% @enfermedad_actuals.each do |enfermedad_actual| %>
+
     <tr>
-      <td><%= enfermedad_actual.fuente_inf %></td>
-      <td><%= enfermedad_actual.fecha_inicio %></td>
-      <td><%= enfermedad_actual.duracion %></td>
-      <td><%= enfermedad_actual.descripcion_semiol %></td>
-      <td><%= enfermedad_actual.dificultad_caminar %></td>
-      <td><%= enfermedad_actual.compromiso_motor_ext_sup %></td>
-      <td><%= enfermedad_actual.compromiso_motor_ext_inf %></td>
-      <td><%= enfermedad_actual.compromiso_motor_facial %></td>
-      <td><%= enfermedad_actual.compromiso_sens_ext_sup %></td>
-      <td><%= enfermedad_actual.compromiso_sens_ext_inf %></td>
-      <td><%= enfermedad_actual.compromiso_sens_tronco %></td>
-      <td><%= enfermedad_actual.compromiso_sens_lhermitte %></td>
-      <td><%= enfermedad_actual.disfuncion_intest_vesical %></td>
-      <td><%= enfermedad_actual.disfuncion_sexual %></td>
-      <td><%= enfermedad_actual.trastorno_oculomotor %></td>
-      <td><%= enfermedad_actual.trastorno_vestib_coclear %></td>
-      <td><%= enfermedad_actual.trastorno_lenguaje_deglucion %></td>
-      <td><%= enfermedad_actual.neuritis_optica %></td>
-      <td><%= enfermedad_actual.disfuncion_cognitiva %></td>
-      <td><%= enfermedad_actual.sintomas_psiquiatricos %></td>
-      <td><%= enfermedad_actual.fatiga %></td>
-      <td><%= enfermedad_actual.sind_uhtoff %></td>
-      <td><%= enfermedad_actual.otros %></td>
-      <td><%= enfermedad_actual.severidad %></td>
-      <td><%= enfermedad_actual.recuperacion %></td>
-      <td><%= enfermedad_actual.certeza %></td>
-      <td><%= enfermedad_actual.evento_asociado %></td>
-      <td><%= enfermedad_actual.dias_hospitalizacion %></td>
-      <td><%= enfermedad_actual.esteroides %></td>
-      <td><%= enfermedad_actual.dosis_esteroides %></td>
-      <td><%= enfermedad_actual.observaciones %></td>
-      <td><%= link_to 'Ver', enfermedad_actual %></td>
-      <td><%= link_to 'Editar', edit_enfermedad_actual_path(enfermedad_actual) %></td>
-      <td><%= link_to 'Eliminar', enfermedad_actual, confirm: 'Esta seguro?', method: :delete %></td>
+      <td><%= @enfermedad_actual.fuente_inf %></td>
+      <td><%= @enfermedad_actual.fecha_inicio %></td>
+      <td><%= @enfermedad_actual.duracion %></td>
+      <td><%= @enfermedad_actual.descripcion_semiol %></td>
+      <td><%= @enfermedad_actual.dificultad_caminar %></td>
+      <td><%= @enfermedad_actual.compromiso_motor_ext_sup %></td>
+      <td><%= @enfermedad_actual.compromiso_motor_ext_inf %></td>
+      <td><%= @enfermedad_actual.compromiso_motor_facial %></td>
+      <td><%= @enfermedad_actual.compromiso_sens_ext_sup %></td>
+      <td><%= @enfermedad_actual.compromiso_sens_ext_inf %></td>
+      <td><%= @enfermedad_actual.compromiso_sens_tronco %></td>
+      <td><%= @enfermedad_actual.compromiso_sens_lhermitte %></td>
+      <td><%= @enfermedad_actual.disfuncion_intest_vesical %></td>
+      <td><%= @enfermedad_actual.disfuncion_sexual %></td>
+      <td><%= @enfermedad_actual.trastorno_oculomotor %></td>
+      <td><%= @enfermedad_actual.trastorno_vestib_coclear %></td>
+      <td><%= @enfermedad_actual.trastorno_lenguaje_deglucion %></td>
+      <td><%= @enfermedad_actual.neuritis_optica %></td>
+      <td><%= @enfermedad_actual.disfuncion_cognitiva %></td>
+      <td><%= @enfermedad_actual.sintomas_psiquiatricos %></td>
+      <td><%= @enfermedad_actual.fatiga %></td>
+      <td><%= @enfermedad_actual.sind_uhtoff %></td>
+      <td><%= @enfermedad_actual.otros %></td>
+      <td><%= @enfermedad_actual.severidad %></td>
+      <td><%= @enfermedad_actual.recuperacion %></td>
+      <td><%= @enfermedad_actual.certeza %></td>
+      <td><%= @enfermedad_actual.evento_asociado %></td>
+      <td><%= @enfermedad_actual.dias_hospitalizacion %></td>
+      <td><%= @enfermedad_actual.esteroides %></td>
+      <td><%= @enfermedad_actual.dosis_esteroides %></td>
+      <td><%= @enfermedad_actual.observaciones %></td>
+      <td><%= link_to 'Ver',  [@patient, @visit, @visit.enfermedad_actual] %></td>
+      <td><%= link_to 'Editar', edit_patient_visit_enfermedad_actual_path(@patient,@visit) %></td>
+      <!-- <td><%= link_to 'Eliminar', patient_visit_enfermedad_actual_path(@patient,@visit), confirm: 'Esta seguro?', method: :delete %></td> -->
     </tr>
-<% end %>
+
   </tbody>
 </table>

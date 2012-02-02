@@ -1,4 +1,12 @@
 class EfMentalsController < ApplicationController
+  before_filter :find_visit_and_patient
+  before_filter :find_ef_mental, :only => [:show,
+                                                :edit,
+                                                :update,
+                                                :destroy,
+                                                :index]
+  before_filter :authenticate_user!
+  
   # GET /ef_mentals
   # GET /ef_mentals.json
   def index
@@ -24,7 +32,7 @@ class EfMentalsController < ApplicationController
   # GET /ef_mentals/new
   # GET /ef_mentals/new.json
   def new
-    @ef_mental = EfMental.new
+    @ef_mental = @visit.build_ef_mental
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +48,11 @@ class EfMentalsController < ApplicationController
   # POST /ef_mentals
   # POST /ef_mentals.json
   def create
-    @ef_mental = EfMental.new(params[:ef_mental])
+    @ef_mental = @visit.create_ef_mental(params[:ef_mental])
 
     respond_to do |format|
       if @ef_mental.save
-        format.html { redirect_to @ef_mental, notice: 'Ef mental was successfully created.' }
+        format.html { redirect_to [@patient,@visit,@ef_mental], notice: 'Ef mental was successfully created.' }
         format.json { render json: @ef_mental, status: :created, location: @ef_mental }
       else
         format.html { render action: "new" }
@@ -60,7 +68,7 @@ class EfMentalsController < ApplicationController
 
     respond_to do |format|
       if @ef_mental.update_attributes(params[:ef_mental])
-        format.html { redirect_to @ef_mental, notice: 'Ef mental was successfully updated.' }
+        format.html { redirect_to [@patient,@visit,@ef_mental], notice: 'Ef mental was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +88,14 @@ class EfMentalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def find_visit_and_patient
+      @visit = Visit.find(params[:visit_id])
+      @patient = @visit.patient
+    end
+    
+    def find_ef_mental
+      @ef_mental = @visit.ef_mental
+    end
 end

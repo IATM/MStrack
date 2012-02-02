@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120126212426) do
     t.string   "traumaticos"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "patient_id"
   end
 
   create_table "ef_columnas", :force => true do |t|
@@ -156,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20120126212426) do
     t.text     "observaciones"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.integer  "visit_id"
   end
 
   create_table "lesion_locations", :force => true do |t|
