@@ -133,6 +133,7 @@ SimpleForm.setup do |config|
   # config.label_class = nil
 
   # You can define the class to use on all forms. Default is simple_form.
+
   # config.form_class = :simple_form
 
   # Whether attributes are required by default (or not). Default is true.

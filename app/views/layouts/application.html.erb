@@ -59,7 +59,17 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <%= yield %>
+		    <% flash.each do |name, msg| %>
+		      <%= content_tag :div, :class => "span16 container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do %>
+		        <a class="close" href="#">×</a>
+		        <p><%= msg %></p>
+		      <% end %>
+		    <% end %>
+			
+			<% if @patient && @visit %>
+				<%= render 'common/header', :patient => @patient,:visit => @visit %>
+			<% end %>
+			<%= yield %>
         </div>
       </div><!--/row-->
 
