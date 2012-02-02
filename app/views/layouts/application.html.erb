@@ -1,70 +1,78 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>IATM MSTrack</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MStrack</title>
+    <%= csrf_meta_tags %>
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="container-fluid">
-        <a class="brand" href="#">IATM MSTrack v0.2</a>
-        <ul class="nav">
-          <li class="active"><%= link_to "Inicio", root_path %></li>
-          <li><a href="#about">Acerca de</a></li>
-          <li><a href="#contact">Contactenos</a></li>
-        </ul>
-        <p class="pull-right">Ingresado como <a href="#">username</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="sidebar">
-      <div class="well">
-		<h5>Menu</h5>
-		<ul>
-			<li><%= link_to "Listado de pacientes", patients_path  %></li>
-		</ul>
-		
-		<h5>Observaciones</h5>
-		<ul>
-			<li><%= link_to "Información sociodemográfica", "/path1"  %></li>
-			<li><%= link_to "Antecedentes", patient_antecedentes_path  %></li>
-			<li><%= link_to "Enfermedad actual", patient_visit_enfermedad_actuals_path  %></li>
-			<li><%= link_to "Examen físico", "/path1"  %></li>
-			<li><%= link_to "Diagnóstico", "/path1"  %></li>
-			<li><%= link_to "Discapacidad", "/path1"  %></li>
-		</ul>
-      </div>
-    </div>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, :class => "span16 container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do %>
-        <a class="close" href="#">×</a>
-        <p><%= msg %></p>
-      <% end %>
-    <% end %>
-    <div class="content">
-      <div class="row">
-        <div class="span16">
-			<%= render 'common/header' %>
-			<%= yield %>
+    <!-- Le styles -->
+    <%= stylesheet_link_tag    "application" %>
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <a class="brand" href="#">MStrack</a>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+                <li><%= link_to "Link1", "/path1"  %></li>
+                <li><%= link_to "Link2", "/path2"  %></li>
+                <li><%= link_to "Link3", "/path3"  %></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
-      <footer>
-		  <%= render 'common/footer'%>
-      </footer>
     </div>
-  </div>
-</body>
+
+    <div class="container-fluid">
+       <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li><%= link_to "Link1", "/path1"  %></li>
+              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+
+  </body>
 </html>
