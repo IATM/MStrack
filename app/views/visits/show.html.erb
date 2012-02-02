@@ -1,7 +1,7 @@
 <div class="page-header">
   <%= link_to 'Ir a paciente', patient_path(@patient), :class => 'btn' %>
   <%= link_to 'Editar', edit_patient_visit_path(@patient), :class => 'btn primary' %>
-  <% if @visit.enfermedad_actual.nil? %><%= link_to "Añadir enfermedad actual", new_patient_visit_enfermedad_actual_path(@patient,@visit), :class => 'btn primary' %><% end %>
+
   <h1>Registro de visita</h1>
 </div>
 
@@ -31,6 +31,26 @@
 <p>
   <b>Enfermedad actual:</b>
   <%= link_to "Ver", [@patient, @visit, @visit.enfermedad_actual], :class => 'btn primary' if !@visit.enfermedad_actual.nil? %>
+</p>
+
+<p>
+  <b>Examen físico general:</b>
+  <%= link_to "Ver", [@patient, @visit, @visit.ef_general], :class => 'btn primary' if !@visit.ef_general.nil? %>
+</p>
+
+<p>
+  <b>Examen físico de columna:</b>
+  <%= link_to "Ver", [@patient, @visit, @visit.ef_columna], :class => 'btn primary' if !@visit.ef_columna.nil? %>
+</p>
+
+<p>
+  <b>Examen físico mental:</b>
+  <%= link_to "Ver", [@patient, @visit, @visit.ef_mental], :class => 'btn primary' if !@visit.ef_mental.nil? %>
+</p>
+
+<p>
+  <b>Examen físico psiquiatrico:</b>
+  <%= link_to "Ver", [@patient, @visit, @visit.ef_psiqu], :class => 'btn primary' if !@visit.ef_psiqu.nil? %>
 </p>
 
 </div>
