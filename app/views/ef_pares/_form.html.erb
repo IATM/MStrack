@@ -1,0 +1,54 @@
+<%= simple_form_for(@ef_pare) do |f| %>
+  <% if @ef_pare.errors.any? %>
+    <div class="alert-message error">
+      <%= f.error_notification %>
+    </div>
+  <% end %>
+
+  <div class="inputs">
+    <%= f.association :visit %>
+	<h6>I Par</h6>
+    <%= f.input :olfato_gusto %>
+	<h6>II Par</h6>
+    <%= f.input :disminucion_av, :collection => ["no", "izq", "der", "ambos"]%>
+    <%= f.input :dolor_ocular, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :desaturacion_rojo, :collection => ["no", "si", "dudoso"] %>
+    <%= f.input :dpar, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :escotoma, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :disco_palido, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :ii_otro %>
+	<h6>III, IV VI</h6>
+    <%= f.input :diplopia %>
+    <%= f.input :oscilopsia %>
+    <%= f.input :paralisis_mirada, :collection => ["no", "conjugada", "disconjugada"]%>
+	<h6>V Par</h6>
+    <%= f.input :hipoestesias_trig, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :parestesias_trig, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :neuralgia_trig, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :dolor_atipico_cara, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :reflejo_corneano_abolido, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :v_compromiso_motor %>
+	<h6>VII Par</h6>
+    <%= f.input :vii_paralisis, :collection => ["no", "Central", "Nuclear"]%>
+    <%= f.input :vii_hemiespasmo, :collection => ["no", "Superior", "Inferior"]%>
+	<h6>VIII Par</h6>
+    <%= f.input :vertigo %>
+    <%= f.input :hipoacusia, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :acufenos %>
+    <%= f.input :nistagmus, :collection => ["no", "Horzontal", "Vertical", "Rotatorio"]%>
+    <%= f.input :test_sacudida_cefalica %>
+	<h6>Pares bajos</h6>
+    <%= f.input :disfonia %>
+    <%= f.input :disfagia %>
+    <%= f.input :nauseoso, :collection => ["no", "izq", "der", "ambos"] %>
+    <%= f.input :paralisis_velo %>
+    <%= f.input :desviacion_lengua %>
+	<h6>XI Par</h6>
+    <%= f.input :xi_comprometido %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, :class => "btn primary" %>
+  </div>
+<% end %>
+
