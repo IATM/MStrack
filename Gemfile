@@ -49,7 +49,7 @@ group :test do
 end
 
 # Simple form
-gem 'simple_form'
+gem "simple_form", "~> 2.0.0.rc"
 
 # Twitter Bootstrap
-gem 'bootstrap-generators'
+gem "twitter-bootstrap-rails", "~> 2.0rc0", :group => :assets

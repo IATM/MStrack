@@ -1,4 +1,4 @@
-<%= simple_form_for [@patient, @visit , @enfermedad_actual] do |f| %>
+<%= simple_form_for([@patient, @visit , @enfermedad_actual], :html => {:class => 'form-horizontal' }) do |f| %>
   <% if @enfermedad_actual.errors.any? %>
     <div class="alert-message error">
       <%= f.error_notification %>
