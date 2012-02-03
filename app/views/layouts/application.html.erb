@@ -51,9 +51,26 @@
        <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
-				<%= render 'common/side_menu', :patient => @patient,:visit => @visit %>
+			<ul>
+				<li><%= link_to "Listado de pacientes", patients_path  %></li>
+			</ul>
+		
+			<h5>Observaciones</h5>
 
-          </div><!--/.well -->
+			<ul class="nav-list">
+				<li class="nav-header">Menu</li>
+						<% if @patient %><li><%= link_to "Información sociodemográfica", patient_path(@patient) %></li><% end %>
+						<% if @patient %><li><% if @patient.antecedente.nil? %> |<%= link_to "Ingresar antecedentes", new_patient_antecedente_path(@patient) %><% else %><%= link_to "Antecedentes", [@patient, @patient.antecedente] %><% end %></li><% end %>
+						<% if @visit %><li><% if @visit.enfermedad_actual.nil? %><%= link_to "Añadir enfermedad actual", new_patient_visit_enfermedad_actual_path(@patient,@visit) %><% else %><%= link_to "Enfermedad actual", [@patient, @visit, @visit.enfermedad_actual] %><% end %></li><% end %>
+						<% if @visit %><li><% if @visit.ef_general.blank? %><%= link_to "Añadir examen físico general", new_patient_visit_ef_general_path(@patient,@visit) %><% else %><%= link_to "Examen físico general", [@patient, @visit, @visit.ef_general] %><% end %></li><% end %>
+						<% if @visit %><li><% if @visit.ef_columna.blank? %><%= link_to "Añadir examen físico de columna", new_patient_visit_ef_columna_path(@patient,@visit) %><% else %><%= link_to "Examen físico de columna", [@patient, @visit, @visit.ef_columna] %><% end %></li><% end %>
+						<% if @visit %><li><% if @visit.ef_mental.blank? %><%= link_to "Añadir examen físico mental", new_patient_visit_ef_mental_path(@patient,@visit) %><% else %><%= link_to "Examen físico mental", [@patient, @visit, @visit.ef_mental] %><% end %></li><% end %>
+						<% if @visit %><li><% if @visit.ef_psiqu.blank? %><%= link_to "Añadir examen físico psiquiatrico", new_patient_visit_ef_psiqu_path(@patient,@visit) %><% else %><%= link_to "Examen físico psiquiatrico", [@patient, @visit, @visit.ef_psiqu] %><% end %></li><% end %>
+						<% if @visit %><li><%= link_to "Diagnóstico", "/path1"  %></li><% end %>
+						<% if @visit %><li><%= link_to "Discapacidad", "/path1"  %></li><% end %>
+
+</ul>
+		</div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
 		    <% flash.each do |name, msg| %>
@@ -62,10 +79,7 @@
 		        <p><%= msg %></p>
 		      <% end %>
 		    <% end %>
-			
-			<% if @patient && @visit %>
-				<%= render 'common/header', :patient => @patient,:visit => @visit %>
-			<% end %>
+				<%= render "common/header", :params => params %>
 			<%= yield %>
         </div>
       </div><!--/row-->
