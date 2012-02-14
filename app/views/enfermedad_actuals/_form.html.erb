@@ -1,4 +1,4 @@
-<%= simple_form_for([@patient, @visit , @enfermedad_actual], :html => {:class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for([@patient, @visit , @enfermedad_actual], :html => {:class => 'form-inline' }) do |f| %>
   <% if @enfermedad_actual.errors.any? %>
     <div class="alert-message error">
       <%= f.error_notification %>
@@ -8,12 +8,16 @@
   <div class="inputs">
     <%= f.input :fuente_inf %>
     <%= f.input :fecha_inicio %>
-    <%= f.input :duracion %>
+    <%= f.input :duracion, :input_html => { :class => 'span1' } %>
     <%= f.input :descripcion_semiol %>
     <%= f.input :dificultad_caminar %>
 	<div class= "row">
-    <%= f.input :compromiso_motor_ext_sup %>
-    <%= f.input :compromiso_motor_ext_inf %>
+			<div class="span3">
+    			<%= f.input :compromiso_motor_ext_sup %>
+			</div>
+			<div class= "span3 offset2">
+    			<%= f.input :compromiso_motor_ext_inf %>
+			</div>
 	</div>
     <%= f.input :compromiso_motor_facial %>
     <%= f.input :compromiso_sens_ext_sup %>

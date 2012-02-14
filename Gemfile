@@ -52,4 +52,4 @@ end
 gem "simple_form", "~> 2.0.0.rc"
 
 # Twitter Bootstrap
-gem "twitter-bootstrap-rails", "~> 2.0rc0", :group => :assets
+gem "twitter-bootstrap-rails", "~> 2.0.2", :group => :assets

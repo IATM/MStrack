@@ -10,7 +10,7 @@ class TextInput < SimpleForm::Inputs::TextInput
   end
 
   def input_html_classes
-    super.unshift("xxlarge")
+    super.unshift("small")
   end
 end
 

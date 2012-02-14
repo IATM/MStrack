@@ -1,4 +1,4 @@
-<%= simple_form_for [@patient, @antecedente] do |f| %>
+<%= simple_form_for([@patient, @antecedente], :html => {:class => 'form-inline' }) do |f| %>
   <% if @antecedente.errors.any? %>
     <div class="alert-message error">
       <%= f.error_notification %>
@@ -6,24 +6,58 @@
   <% end %>
 
   <div class="inputs">
-    <%= f.input :patologicos, :collection => ["diabetes", "dislipidemia", "enfermedad cardiaca", "enfermedad tiroidea", "hipertensión"] %>
-    <%= f.input :autoinmunes, :collection => ["artritis reumatoidea", "diabetes tipo 1", "enfermedad inflamatoria intestinal", "escleroderma", "LES"] %>
-    <%= f.input :neurologicos, :collection =>  ["ACV", "ELA", "epilepsia", "miastenia gravis", "migraña", "síndrome de Guillain barré"]%>
-    <%= f.input :psiquiatricos, :collection =>   ["depresión", "TAB", "TAG"]%>
-    <%= f.input :quirurgicos %>
-		<%= f.input :gineco_g, :label => "G", :input_html => { :class => "span1"} %>
-	    <%= f.input :gineco_p, :label => "P", :input_html => { :class => "span1"} %>
-	    <%= f.input :gineco_c, :label => "C", :input_html => { :class => "span1"} %>
-	    <%= f.input :gineco_a, :label => "A", :input_html => { :class => "span1"} %>
-	    <%= f.input :gineco_e, :label => "E", :input_html => { :class => "span1"} %>
-	    <%= f.input :gineco_v, :label => "V", :input_html => { :class => "span1"} %>
-    <%= f.input :gineco_anticoncepcion, :label => "Anticoncepcion" %>
+	  
+	  <div class ='row'>
+		  <div class="span3">
+    	 	 <%= f.input :patologicos, :collection => ["diabetes", "dislipidemia", "enfermedad cardiaca", "enfermedad tiroidea", "hipertensión"], :input_html => { :multiple => true } %>
+		  </div>
+		  <div class="span3">
+    	  	<%= f.input :autoinmunes, :collection => ["artritis reumatoidea", "diabetes tipo 1", "enfermedad inflamatoria intestinal", "escleroderma", "LES"], :input_html => { :multiple => true } %>
+		  </div>
+		  <div class="span3">
+		  <%= f.input :neurologicos, :collection =>  ["ACV", "ELA", "epilepsia", "miastenia gravis", "migraña", "síndrome de Guillain barré"], :input_html => { :multiple => true }%>
+		  </div>
+	  </div>
+	  
+	  <div class ='row'>
+		  <div class="span3">
+			  <%= f.input :psiquiatricos, :collection =>   ["depresión", "TAB", "TAG"], :input_html => { :multiple => true }%>
+		  </div>
+		  <div class="span3">
+			  <%= f.input :quirurgicos %>
+		  </div>
+	  </div>
+	  
+	<div class="row">
+		<div class="span2">
+			<%= f.input :gineco_g, :label => "G", :input_html => { :class => "span2" } %>
+		</div>
+		<div class="span2">
+			<%= f.input :gineco_p, :label => "P", :input_html => { :class => "span2" } %>
+		</div>
+		<div class="span2">
+	    	<%= f.input :gineco_c, :label => "C", :input_html => { :class => "span2" } %>
+		</div>
+		<div class="span2">
+	    	<%= f.input :gineco_a, :label => "A", :input_html => { :class => "span2" } %>
+		</div>
+		<div class="span2">
+	    	<%= f.input :gineco_e, :label => "E", :input_html => { :class => "span2" } %>
+		</div>
+		<div class="span2">
+	    	<%= f.input :gineco_v, :label => "V", :input_html => { :class => "span2" } %>
+		</div>
+		<div class="span2">
+    		<%= f.input :gineco_anticoncepcion, :label => "Anticoncepcion" %>
+		</div>
+	</div>
+	
     <%= f.input :toxicos, :collection => ["cigarrillo", "alcohol", "otras sustancias"]%>
     <%= f.input :adicciones %>
     <%= f.input :alergicos %>
     <%= f.input :vacunas_recientes %>
     <%= f.input :traumaticos %>
-  </div>
+  </div>  
 
   <div class="actions">
     <%= f.button :submit, :class => "btn primary" %>

@@ -10,7 +10,7 @@ class NumericInput < SimpleForm::Inputs::NumericInput
   end
 
   def input_html_classes
-    super.unshift("xxlarge")
+    super.unshift("input-small")
   end
 end
 
