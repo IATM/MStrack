@@ -1,4 +1,4 @@
-<%= simple_form_for(@ef_pare) do |f| %>
+<%= simple_form_for [@patient, @visit , @ef_pare] do |f| %>
   <% if @ef_pare.errors.any? %>
     <div class="alert-message error">
       <%= f.error_notification %>

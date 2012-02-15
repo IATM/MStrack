@@ -6,4 +6,5 @@ class Visit < ActiveRecord::Base
   has_one :ef_general
   has_one :ef_mental
   has_one :ef_psiqu
+  has_one :ef_pare
 end

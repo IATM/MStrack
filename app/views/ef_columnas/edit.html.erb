@@ -1,6 +1,6 @@
 <div class="page-header">
-  <%= link_to 'Atras', ef_columnas_path, :class => 'btn' %>
-  <%= link_to 'Ver', @ef_columna, :class => 'btn primary' %>
+  <%= link_to 'Atras', [@patient,@visit,@ef_columna], :class => 'btn' %>
+  <%= link_to 'Ver', [@patient,@visit,@ef_columna], :class => 'btn primary' %>
   <h1>Editando ef_columna</h1>
 </div>
 

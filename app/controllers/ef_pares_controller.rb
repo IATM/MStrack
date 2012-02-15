@@ -1,4 +1,12 @@
 class EfParesController < ApplicationController
+  before_filter :find_visit_and_patient
+  before_filter :find_ef_pare, :only => [:show,
+                                                :edit,
+                                                :update,
+                                                :destroy,
+                                                :index]
+  before_filter :authenticate_user!
+  
   # GET /ef_pares
   # GET /ef_pares.json
   def index
@@ -24,7 +32,7 @@ class EfParesController < ApplicationController
   # GET /ef_pares/new
   # GET /ef_pares/new.json
   def new
-    @ef_pare = EfPare.new
+    @ef_pare = @visit.build_ef_pare
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +48,11 @@ class EfParesController < ApplicationController
   # POST /ef_pares
   # POST /ef_pares.json
   def create
-    @ef_pare = EfPare.new(params[:ef_pare])
+    @ef_pare = @visit.create_ef_pare(params[:ef_pare])
 
     respond_to do |format|
       if @ef_pare.save
-        format.html { redirect_to @ef_pare, notice: 'Ef pare was successfully created.' }
+        format.html { redirect_to [@patient,@visit,@ef_pare], notice: 'Ef pare was successfully created.' }
         format.json { render json: @ef_pare, status: :created, location: @ef_pare }
       else
         format.html { render action: "new" }
@@ -60,7 +68,7 @@ class EfParesController < ApplicationController
 
     respond_to do |format|
       if @ef_pare.update_attributes(params[:ef_pare])
-        format.html { redirect_to @ef_pare, notice: 'Ef pare was successfully updated.' }
+        format.html { redirect_to [@patient,@visit,@ef_pare], notice: 'Ef pare was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +88,15 @@ class EfParesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def find_visit_and_patient
+      @visit = Visit.find(params[:visit_id])
+      @patient = @visit.patient
+    end
+    
+    def find_ef_pare
+     @ef_pare = @visit.ef_pare
+    end
+  
 end
