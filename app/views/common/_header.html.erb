@@ -1,1 +1,2 @@
-<%= params %>
+<!-- <%= params %>  -->
+<% if @patient %><h1><small><%= @patient.first_name+' '+@patient.last_name %><% if @visit %><%= ' - Visita '+@visit.visit_date.to_s %><% end %></small></h1><% end %>
