@@ -21,6 +21,7 @@ MStrack::Application.routes.draw do
       resources :ef_generals
       resources :ef_mentals
       resources :ef_psiqus
+      resources :ef_pares
     end
     resources :antecedentes
   end
