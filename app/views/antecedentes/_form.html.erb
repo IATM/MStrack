@@ -8,6 +8,8 @@
   <div class="inputs">
 	  
 	  <div class ='row'>
+	<h4>Patologicos</h4>
+	  
 		  <div class="span3">
     	 	 <%= f.input :patologicos, :collection => ["diabetes", "dislipidemia", "enfermedad cardiaca", "enfermedad tiroidea", "hipertensión"], :input_html => { :multiple => true } %>
 		  </div>
@@ -29,6 +31,7 @@
 	  </div>
 	  
 	<div class="row">
+		<h4>Gineco-Obstetricos</h4>
 		<div class="span2">
 			<%= f.input :gineco_g, :label => "G", :input_html => { :class => "span2" } %>
 		</div>
